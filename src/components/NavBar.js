@@ -1,5 +1,6 @@
 import { Box, Button, Flex, Image, Link } from '@chakra-ui/react'
-import React, { useContext } from 'react'
+import { motion } from 'framer-motion'
+import React, { useContext, useState } from 'react'
 
 import Logo from '../assets/Logo.png'
 import { ApplicationContext } from '../context/AppContext'
@@ -7,6 +8,7 @@ import { ApplicationContext } from '../context/AppContext'
 export const NavBar = () => {
 
     const { scrolled } = useContext(ApplicationContext)
+    const [active, setActive] = useState(0)
 
     const navLinks = [
         { link: '#home', label: 'Home' },
@@ -18,6 +20,11 @@ export const NavBar = () => {
         bg: 'palette.secondary',
         h: '4rem',
         boxShadow: '1px 0 10px rgba(0, 0, 0, .050)',
+    }
+
+    const activeNavStyle = {
+        color: 'palette.accent',
+        fontWeight: 'bold',
     }
 
     return (
@@ -59,15 +66,34 @@ export const NavBar = () => {
                     {navLinks.map((nav, index) => {
                         return (
                             <Link
+                                display='flex'
+                                justifyContent='center'
                                 key={index}
                                 href={nav.link}
                                 transition='all .3s ease'
                                 fontSize={scrolled && '.95rem'}
+                                pos='relative'
+                                {...active === index && activeNavStyle}
+                                onClick={() => setActive(index)}
                                 _hover={{
                                     color: 'palette.accent'
                                 }}
                             >
                                 {nav.label}
+                                    {active === index && (
+                                        <Box
+                                            pos='absolute'
+                                            bottom='-.6rem'
+                                            w='.5rem'
+                                            h='.5rem'
+                                            borderRadius='50%'
+                                            bg='palette.accent'
+                                            as={motion.div}
+                                            layoutId
+                                        >
+
+                                        </Box>
+                                    )}
                             </Link>
                         )
                     })}
