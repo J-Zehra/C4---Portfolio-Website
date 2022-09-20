@@ -1,14 +1,13 @@
 import { Box, Button, Flex, Image, Link } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 
 import Logo from '../assets/Logo.png'
 import { ApplicationContext } from '../context/AppContext'
 
 export const NavBar = () => {
 
-    const { scrolled } = useContext(ApplicationContext)
-    const [active, setActive] = useState(0)
+    const { scrolled, activeNav } = useContext(ApplicationContext)
 
     const navLinks = [
         { link: '#home', label: 'Home' },
@@ -25,6 +24,11 @@ export const NavBar = () => {
     const activeNavStyle = {
         color: 'palette.accent',
         fontWeight: 'bold',
+    }
+
+    const activeContactStyle = {
+        bg: 'palette.accent',
+        color: 'palette.tertiary'
     }
 
     return (
@@ -73,14 +77,13 @@ export const NavBar = () => {
                                 transition='all .3s ease'
                                 fontSize={scrolled && '.95rem'}
                                 pos='relative'
-                                {...active === index && activeNavStyle}
-                                onClick={() => setActive(index)}
+                                {...activeNav === index && activeNavStyle}
                                 _hover={{
                                     color: 'palette.accent'
                                 }}
                             >
                                 {nav.label}
-                                    {active === index && (
+                                    {activeNav === index && (
                                         <Box
                                             pos='absolute'
                                             bottom='-.6rem'
@@ -107,6 +110,9 @@ export const NavBar = () => {
                     borderColor='palette.accent'
                     transition='all .3s ease'
                     fontSize={scrolled ? '.9rem' : '.95rem'}
+                    as='a'
+                    href='#contact'
+                    {...activeNav === 3 && activeContactStyle}
                     _hover={{
                         bg: 'palette.accent',
                         color: 'palette.tertiary'

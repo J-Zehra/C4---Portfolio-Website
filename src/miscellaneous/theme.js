@@ -10,7 +10,6 @@ const colors = {
     }
 }
 
-
 const fonts = {
     body: `'Poppins', sans-serif`
 }

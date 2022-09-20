@@ -1,7 +1,31 @@
-import React from 'react'
+import { Box } from '@chakra-ui/react'
+import { useInView } from 'framer-motion';
+import React, { useContext, useEffect, useRef } from 'react'
+import { ApplicationContext } from '../context/AppContext';
 
 export const About = () => {
+
+    const { setActiveNav } = useContext(ApplicationContext)
+
+    const ref = useRef(null);
+    const isInView = useInView(ref, {
+        margin: '-50% 0px -50% 0px'
+    });
+
+    useEffect(() => {
+        if (isInView) {
+            setActiveNav(1);
+        }
+    }, [isInView, setActiveNav])
+
     return (
-        <div>About</div>
+        <Box
+            id='about'
+            w='100%'
+            h='100vh'
+            ref={ref}
+        >
+
+        </Box>
     )
 }

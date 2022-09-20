@@ -12,7 +12,11 @@ import "@fontsource/poppins/500.css"
 import "@fontsource/poppins/600.css"
 import "@fontsource/poppins/700.css"
 import "@fontsource/poppins/900.css"
+
 import { NavBar } from './components/NavBar';
+import { About } from './pages/About';
+import { Portfolio } from './pages/Portfolio';
+import { Contact } from './pages/Contact'
 
 export const App = () => {
   return (
@@ -31,6 +35,9 @@ export const App = () => {
           pos='relative'
         >
           <Home/>
+          <About/>
+          <Portfolio/>
+          <Contact/>
         </Box>
       </AppContext>
     </ChakraProvider>
