@@ -19,9 +19,11 @@ import { Portfolio } from './pages/Portfolio';
 import { Contact } from './pages/Contact'
 
 export const App = () => {
+
   return (
     <ChakraProvider theme={theme}>
       <AppContext>
+        
         <NavBar/>
         <Box
           w={{

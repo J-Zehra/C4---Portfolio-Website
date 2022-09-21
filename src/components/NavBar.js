@@ -1,13 +1,15 @@
-import { Box, Button, Flex, Image, Link } from '@chakra-ui/react'
+import { Box, Button, Flex, Image, Link, useMediaQuery } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import React, { useContext } from 'react'
 
 import Logo from '../assets/Logo.png'
+import Logo2 from '../assets/Logo2.png'
 import { ApplicationContext } from '../context/AppContext'
+import { MobileMenu } from './MobileMenu'
 
 export const NavBar = () => {
 
-    const { scrolled, activeNav } = useContext(ApplicationContext)
+    const { scrolled, activeNav, toggled } = useContext(ApplicationContext)
 
     const navLinks = [
         { link: '#home', label: 'Home' },
@@ -31,6 +33,24 @@ export const NavBar = () => {
         color: 'palette.tertiary'
     }
 
+    const container = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.3
+            }
+        }
+    }
+
+    const item = {
+        hidden: { opacity: 0, y: -20 },
+        show: { opacity: 1, y: 0 }
+    }
+
+    // TRACK SCREEN SIZE TO ADJUST THE NAV APPEARANCE
+    const [isSmallerThan850] = useMediaQuery('(max-width: 850px)')
+
     return (
         <Box
             w='100%'
@@ -52,74 +72,95 @@ export const NavBar = () => {
                 margin='auto'
                 alignItems='center'
                 justifyContent='space-between'
+
+                as={motion.div}
+                variants={container}
+                animate='show'
+                initial='hidden'
             >
                 {/* Logo */}
-                <Link href='#home'>
+                <Link 
+                    href='#home'
+                    as={motion.a}
+                    variants={item}
+                >
                     <Image
                         transition='all .3s ease'
                         w={scrolled ? '4.9rem' : '5rem'}
-                        src={Logo}
+                        src={toggled ? Logo2 : Logo}
                     />
                 </Link>
 
                 {/* Navigation Links */}
-                <Flex
-                    alignItems='center'
-                    gap='3rem'
-                >
-                    {navLinks.map((nav, index) => {
-                        return (
-                            <Link
-                                display='flex'
-                                justifyContent='center'
-                                key={index}
-                                href={nav.link}
-                                transition='all .3s ease'
-                                fontSize={scrolled && '.95rem'}
-                                pos='relative'
-                                {...activeNav === index && activeNavStyle}
-                                _hover={{
-                                    color: 'palette.accent'
-                                }}
-                            >
-                                {nav.label}
-                                    {activeNav === index && (
-                                        <Box
-                                            pos='absolute'
-                                            bottom='-.6rem'
-                                            w='.5rem'
-                                            h='.5rem'
-                                            borderRadius='50%'
-                                            bg='palette.accent'
-                                            as={motion.div}
-                                            layoutId
-                                        >
+                {isSmallerThan850 ? (
+                    <MobileMenu />
+                ) : (
+                    <>
+                        <Flex
+                            alignItems='center'
+                            gap='3rem'
+                        >
+                            {navLinks.map((nav, index) => {
+                                return (
+                                    <Link
+                                        display='flex'
+                                        justifyContent='center'
+                                        key={index}
+                                        href={nav.link}
+                                        transition='all .3s ease'
+                                        fontSize={scrolled && '.95rem'}
+                                        pos='relative'
+                                        {...activeNav === index && activeNavStyle}
+                                        _hover={{
+                                            color: 'palette.accent'
+                                        }}
 
-                                        </Box>
-                                    )}
-                            </Link>
-                        )
-                    })}
-                </Flex>
+                                        as={motion.a}
+                                        variants={item}
+                                    >
+                                        {nav.label}
+                                        {activeNav === index && (
+                                            <Box
+                                                pos='absolute'
+                                                bottom='-.6rem'
+                                                w='.5rem'
+                                                h='.5rem'
+                                                borderRadius='50%'
+                                                bg='palette.accent'
+                                                as={motion.div}
+                                                layoutId
+                                            >
 
-                {/* Contact */}
-                <Button
-                    bg='transparent'
-                    color='palette.accent'
-                    border='1px solid'
-                    borderColor='palette.accent'
-                    transition='all .3s ease'
-                    fontSize={scrolled ? '.9rem' : '.95rem'}
-                    as='a'
-                    href='#contact'
-                    {...activeNav === 3 && activeContactStyle}
-                    _hover={{
-                        bg: 'palette.accent',
-                        color: 'palette.tertiary'
-                    }}
-                >
-                    Contact
-                </Button>
+                                            </Box>
+                                        )}
+                                    </Link>
+                                )
+                            })}
+                        </Flex>
+
+                        {/* Contact */}
+                        <Button
+                            bg='transparent'
+                            color='palette.accent'
+                            border='1px solid'
+                            borderColor='palette.accent'
+                            transition='all .3s ease'
+                            fontSize={scrolled ? '.9rem' : '.95rem'}
+                            href='#contact'
+                            {...activeNav === 3 && activeContactStyle}
+                            _hover={{
+                                bg: 'palette.accent',
+                                color: 'palette.tertiary'
+                            }}
+
+                            as={motion.a}
+                            variants={item}
+                        >
+                            Contact
+                        </Button>
+
+                    </>
+                )}
             </Flex>
         </Box>
     )

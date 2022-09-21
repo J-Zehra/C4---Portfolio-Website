@@ -7,6 +7,7 @@ export const ApplicationContext = createContext();
 export const AppContext = ({ children }) => {
 
     const [activeNav, setActiveNav] = useState(0)
+    const [toggled, setToggled] = useState(false);
 
     // INITIALIZE A STATE TO TRACK IF THE PAGE IS SCROLLED
     const [scrolled, setScrolled] = useState(false);
@@ -27,7 +28,9 @@ export const AppContext = ({ children }) => {
     const values = {
         scrolled,
         activeNav,
-        setActiveNav
+        setActiveNav,
+        toggled, 
+        setToggled
     }
 
     return (
