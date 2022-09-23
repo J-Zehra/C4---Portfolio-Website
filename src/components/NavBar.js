@@ -56,7 +56,7 @@ export const NavBar = () => {
             w='100%'
             h='5rem'
             pos='fixed'
-            zIndex='1'
+            zIndex='2'
             transition='all .3s ease'
             {...scrolled && navScrolledStyle}
         >
@@ -129,9 +129,7 @@ export const NavBar = () => {
                                                 bg='palette.accent'
                                                 as={motion.div}
                                                 layoutId
-                                            >
-
-                                            </Box>
+                                            />
                                         )}
                                     </Link>
                                 )

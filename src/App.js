@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Box,
   ChakraProvider,
 } from '@chakra-ui/react';
 import { Home } from './pages/Home';
@@ -23,24 +22,13 @@ export const App = () => {
   return (
     <ChakraProvider theme={theme}>
       <AppContext>
-        
         <NavBar/>
-        <Box
-          w={{
-            base: '95%',
-            sm: '90%',
-            lg: '85%',
-            xl: '80%',
-            '2xl': '75%',
-          }}
-          margin='auto'
-          pos='relative'
-        >
+        <>
           <Home/>
           <About/>
           <Portfolio/>
           <Contact/>
-        </Box>
+        </>
       </AppContext>
     </ChakraProvider>
   );

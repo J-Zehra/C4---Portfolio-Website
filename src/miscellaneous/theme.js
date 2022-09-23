@@ -18,7 +18,7 @@ const styles = {
     global: {
         html: {
             scrollBehavior: 'smooth',
-            overflowX: 'hidden'
+            overflowX: 'hidden', 
         },
         body: {
             bg: 'palette.primary',
@@ -28,6 +28,14 @@ const styles = {
             color: 'rgba(38, 50, 56, .6)',
             fontSize: '.9rem'
         },
+        h1: {
+            fontSize: '4.5rem',
+            fontWeight: 'bold'
+        },
+        p: {
+            fontSize: '1rem',
+            fontWeight: 'medium'
+        }
     }
 }
 
