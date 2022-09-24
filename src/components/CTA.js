@@ -7,6 +7,7 @@ import { FaFolderOpen } from 'react-icons/fa'
 export const CTA = ({ ...props }) => {
 
     const [buttonHover, setButtonHover] = useState(false)
+    const [secondaryButtonHover, setSecondaryButtonHover] = useState(false)
 
     return (
         <Flex
@@ -62,7 +63,7 @@ export const CTA = ({ ...props }) => {
                         alignItems='center'
                         justifyContent='center'
                         borderRadius='0 .5rem .5rem 0'
-                        border='2px solid'
+                        border='3px solid'
                         borderColor='palette.accent'
                     >
                         Portfolio
@@ -70,16 +71,22 @@ export const CTA = ({ ...props }) => {
                 </Flex>
             </Button>
             <Button
+                pos='relative'
                 variant='flushed'
                 fontSize='.9rem'
-                p='0 0 .1rem 0'
-                borderBottom='1px solid'
-                borderRadius='.1'
-                _hover={{
-                    color: 'palette.accent'
-                }}
                 as={motion.button}
                 {...props}
+                onHoverStart={() => setSecondaryButtonHover(true)}
+                onHoverEnd={() => setSecondaryButtonHover(false)}
+                _before={{
+                    content:'""',
+                    pos: 'absolute',
+                    h:'.1rem',
+                    w: secondaryButtonHover ? '6rem' : '1rem',
+                    bg: 'palette.tertiary',
+                    bottom: 0,
+                    transition:'all .3s ease'
+                }}
             >
                 Download CV
             </Button>
