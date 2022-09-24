@@ -150,7 +150,6 @@ export const NavBar = () => {
                                 bg: 'palette.accent',
                                 color: 'palette.tertiary'
                             }}
-
                             as={motion.a}
                             variants={item}
                         >
