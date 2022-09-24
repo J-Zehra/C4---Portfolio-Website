@@ -6,6 +6,8 @@ import { ApplicationContext } from '../context/AppContext'
 
 import HeroImage from '../assets/heroImage.png'
 import { CTA } from '../components/CTA'
+import { container, item } from '../miscellaneous/motionVariants'
+
 
 export const Home = () => {
 
@@ -21,28 +23,6 @@ export const Home = () => {
             setActiveNav(0);
         }
     }, [isInView, setActiveNav])
-
-    const container = {
-        hidden: { opacity: 0 },
-        show: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.3
-            }
-        }
-    }
-
-    const item = {
-        hidden: { opacity: 0, y: -10 },
-        show: { 
-            opacity: 1, 
-            y: 0,
-            transition: {
-                type: 'tween',
-                duration: .6
-            }
-        }
-    }
 
     return (
         <Flex
@@ -113,7 +93,6 @@ export const Home = () => {
 
                     {/* CTA */}
                     <CTA 
-                        as={motion.p}
                         variants={item}
                     />
                 </Flex>

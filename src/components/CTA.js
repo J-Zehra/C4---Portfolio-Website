@@ -1,4 +1,4 @@
-import { Button, Flex } from '@chakra-ui/react'
+import { Button, Flex, Text } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
 
@@ -39,15 +39,21 @@ export const CTA = ({ ...props }) => {
                         bg='palette.tertiary'
                         h='100%'
                         transition='all .3s ease'
-                        w={buttonHover ? '50%' : '0'}
+                        w={buttonHover ? '50%' : '5%'}
                         alignItems='center'
                         justifyContent='center'
-                    //borderRadius='.5rem 0 0 .5rem'
+                        borderRadius='.5rem 0 0 .5rem'
+                        opacity={buttonHover ? '1' : '.7'}
                     >
-                        <FaFolderOpen
+                        <Text
                             color='#293241'
                             fontSize='1.2rem'
-                        />
+                            transition='all .3s ease'
+                            opacity={buttonHover ? '1' : '0'}
+                        >
+                            <FaFolderOpen
+                            />
+                        </Text>
                     </Flex>
                     <Flex
                         bg='palette.accent'
@@ -55,7 +61,9 @@ export const CTA = ({ ...props }) => {
                         w='100%'
                         alignItems='center'
                         justifyContent='center'
-                        borderRadius={buttonHover ? '0 .5rem .5rem 0' : '.5rem'}
+                        borderRadius='0 .5rem .5rem 0'
+                        border='2px solid'
+                        borderColor='palette.accent'
                     >
                         Portfolio
                     </Flex>
@@ -70,6 +78,7 @@ export const CTA = ({ ...props }) => {
                 _hover={{
                     color: 'palette.accent'
                 }}
+                as={motion.button}
                 {...props}
             >
                 Download CV
