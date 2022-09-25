@@ -3,7 +3,6 @@ import { useInView } from 'framer-motion';
 import React, { useContext, useEffect, useRef } from 'react'
 import { ApplicationContext } from '../context/AppContext';
 
-import { PortfolioCTA } from '../components/PortfolioCTA';
 
 export const Portfolio = () => {
 
@@ -68,7 +67,7 @@ export const Portfolio = () => {
                             <Flex
                                 w='25rem'
                                 h='20rem'
-                                bg='palette.accent'
+                                bg='#323D50'
                                 borderRadius='.5rem'
                                 boxShadow='2px 3px 20px rgba(0, 0, 0, .2)'
                             >
@@ -78,7 +77,7 @@ export const Portfolio = () => {
                         )
                     })}
                 </Wrap>
-                <PortfolioCTA/>
+                {/* <PortfolioCTA/> */}
             </Flex>
         </Box>
     )
