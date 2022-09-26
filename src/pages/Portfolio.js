@@ -1,8 +1,9 @@
 import { Box, Flex, Text, Wrap, WrapItem } from '@chakra-ui/react'
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import React, { useContext, useEffect, useRef } from 'react'
 import { ApplicationContext } from '../context/AppContext';
 
+import { container, item } from '../miscellaneous/motionVariants'
 
 export const Portfolio = () => {
 
@@ -38,7 +39,7 @@ export const Portfolio = () => {
             <Flex
                 justifyContent='center'
                 flexDir='column'
-                gap='15rem'
+                gap='12rem'
                 margin='auto'
                 w={{
                     base: '95%',
@@ -48,28 +49,54 @@ export const Portfolio = () => {
                     '2xl': '75%',
                 }}
             >
-                <Text
-                    textAlign='center'
-                    fontSize='1.5rem'
-                    marginTop='8rem'
+                <Box
+                    marginTop='16rem'
                 >
-                    Portfolio
-                </Text>
+                    <Text
+                        textAlign='center'
+                        fontSize='1.5rem'
+                        fontWeight='bold'
+                    >
+                        Portfolio
+                    </Text>
+        
+                    <Text
+                        textAlign='center'
+                        fontSize='1rem'
+                        fontWeight='normal'
+                    >
+                        Take a look at some of my best work
+                    </Text>
+                </Box>
                 <Wrap
                     justify='center'
                     align='center'
                     spacing='2rem'
                     p='1.5rem'
+
+                    as={motion.div}
+                    variants={container}
+                    whileInView='show'
+                    initial='hidden'
                 >
                     {projectList.map((project, index) => {
                         return(
-                        <WrapItem>
+                        <WrapItem
+                            key={index}
+                        >
                             <Flex
-                                w='25rem'
-                                h='20rem'
+                                w='20rem'
+                                h='18rem'
                                 bg='#323D50'
                                 borderRadius='.5rem'
                                 boxShadow='2px 3px 20px rgba(0, 0, 0, .2)'
+                                cursor='pointer'
+
+                                as={motion.div}
+                                variants={item}
+                                whileHover={{
+                                    scale: 1.01
+                                }}
                             >
 
                             </Flex>

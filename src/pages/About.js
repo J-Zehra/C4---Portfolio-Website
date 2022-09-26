@@ -1,5 +1,5 @@
 import { Box, Flex, Image, Text } from '@chakra-ui/react'
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import React, { useContext, useEffect, useRef } from 'react'
 import { ApplicationContext } from '../context/AppContext';
 
@@ -7,6 +7,8 @@ import BG from '../assets/aboutBg.png'
 import ProfilePicture from '../assets/aboutImage.png'
 import { CustomButton } from '../components/CustomButton';
 import { BiDownload } from 'react-icons/bi'
+
+import { container, item } from '../miscellaneous/motionVariants'
 
 export const About = () => {
 
@@ -27,7 +29,6 @@ export const About = () => {
         <Box
             id='about'
             w='100%'
-            h='100vh'
             ref={ref}
         >
             <Flex
@@ -43,15 +44,32 @@ export const About = () => {
                     '2xl': '75%',
                 }}
             >
-                <Text
-                    textAlign='center'
-                    fontSize='1.5rem'
-                >
-                    About me
-                </Text>
+                <Box>
+                    <Text
+                        textAlign='center'
+                        fontSize='1.5rem'
+                        marginTop='8rem'
+                        fontWeight='bold'
+                    >
+                        About
+                    </Text>
+
+                    <Text
+                        textAlign='center'
+                        fontSize='1rem'
+                        fontWeight='normal'
+                    >
+                        Get to know me
+                    </Text>
+                </Box>
                 <Flex
                     justifyContent='space-between'
                     alignItems='center'
+
+                    as={motion.div}
+                    variants={container}
+                    whileInView='show'
+                    initial='hidden'
                 >
                     <Box
                         flex='1'
@@ -59,6 +77,9 @@ export const About = () => {
                         <Image
                             src={ProfilePicture}
                             w='50%'
+
+                            as={motion.img}
+                            variants={item}
                         />
                     </Box>
                     <Flex
@@ -74,17 +95,25 @@ export const About = () => {
                             pos='absolute'
                             zIndex='-1'
                             left='-2.5rem'
+
+                            as={motion.img}
+                            variants={item}
                         />
                         <Text
                             bg='linear-gradient(#E0FBFC ,#A0B6D2)'
                             backgroundClip='text'
+
+                            as={motion.p}
+                            variants={item}
                         >
                             My name is,
                         </Text>
                         <Text
                             bg='linear-gradient(#E0FBFC ,#8BA8CD)'
                             backgroundClip='text'
-                            as='h1'
+                            
+                            as={motion.h1}
+                            variants={item}
                         >
                             Darren Jay Angulo
                         </Text>
@@ -92,6 +121,9 @@ export const About = () => {
                             w='60%'
                             bg='linear-gradient(#E0FBFC ,#A0B6D2)'
                             backgroundClip='text'
+                            
+                            as={motion.p}
+                            variants={item}
                         >
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -100,8 +132,9 @@ export const About = () => {
                         </Text>
                         <CustomButton
                             text='Download CV'
-                            leftIcon={<BiDownload/>}
+                            leftIcon={<BiDownload />}
                             marginTop='1.5rem'
+                            variants={item}
                         />
                     </Flex>
                 </Flex>

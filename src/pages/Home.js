@@ -53,7 +53,7 @@ export const Home = () => {
                 as={motion.div}
                 variants={container}
                 initial='hidden'
-                animate='show'
+                whileInView='show'
             >
                 <Flex
                     flexDir='column'

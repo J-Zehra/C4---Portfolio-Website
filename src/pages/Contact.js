@@ -7,6 +7,8 @@ import Lottie from 'react-lottie-player'
 import lottieJson from '../assets/lottieJson.json'
 import { Wave } from '../assets/svg_component/Wave';
 
+import { container, item } from '../miscellaneous/motionVariants'
+
 export const Contact = () => {
 
     const { setActiveNav } = useContext(ApplicationContext)
@@ -28,6 +30,7 @@ export const Contact = () => {
             <Box
                 id='contact'
                 w='100%'
+                h='100vh'
                 ref={ref}
                 bg='palette.secondary'
             >
@@ -44,10 +47,18 @@ export const Contact = () => {
                         xl: '80%',
                         '2xl': '75%',
                     }}
+
+                    as={motion.div}
+                    variants={container}
+                    whileInView='show'
+                    initial='hidden'
                 >
                     <Box
                         flex='1'
                         w='100%'
+
+                        as={motion.div}
+                        variants={item}
                     >
                         <Lottie
                             loop
@@ -62,23 +73,11 @@ export const Contact = () => {
                     >
                         <Text
                             textAlign='center'
-                            fontSize='1.5rem'
+                            fontSize='1.6rem'
+                            fontWeight='bold'
 
-                            // ANIMATION PROPS
                             as={motion.p}
-                            initial={{
-                                y: 75,
-                                opacity: 0,
-                            }}
-                            whileInView={{
-                                y: 0,
-                                opacity: 1,
-                                transition: {
-                                    type: 'tween',
-                                    duration: .8,
-                                    ease: 'easeInOut'
-                                }
-                            }}
+                            variants={item}
                         >
                             Send us a message
                         </Text>
@@ -89,21 +88,8 @@ export const Contact = () => {
                             color='palette.tertiary'
                             fontSize='.85rem'
 
-                            // ANIMATION PROPS
                             as={motion.p}
-                            initial={{
-                                y: 75,
-                                opacity: 0,
-                            }}
-                            whileInView={{
-                                y: 0,
-                                opacity: 1,
-                                transition: {
-                                    type: 'tween',
-                                    duration: .8,
-                                    ease: 'easeInOut'
-                                }
-                            }}
+                            variants={item}
                         >
                             Let us hear your ideas. Contact us and let's start working together
                         </Text>
@@ -112,6 +98,9 @@ export const Contact = () => {
                             flexDir='column'
                             marginTop='5rem'
                             gap='2rem'
+
+                            as={motion.div}
+                            variants={item}
                         >
                             <Flex
                                 gap='6rem'
@@ -129,22 +118,8 @@ export const Contact = () => {
                                         color: 'palette.tertiary',
                                         fontSize: '.8rem'
                                     }}
-
-                                    // ANIMATION PROPS
                                     as={motion.input}
-                                    initial={{
-                                        y: 75,
-                                        opacity: 0,
-                                    }}
-                                    whileInView={{
-                                        y: 0,
-                                        opacity: 1,
-                                        transition: {
-                                            type: 'tween',
-                                            duration: .8,
-                                            ease: 'easeInOut'
-                                        }
-                                    }}
+                                    variants={item}
                                 />
                                 <Input
                                     placeholder='Last Name'
@@ -155,22 +130,8 @@ export const Contact = () => {
                                         color: 'palette.tertiary',
                                         fontSize: '.8rem'
                                     }}
-
-                                    // ANIMATION PROPS
                                     as={motion.input}
-                                    initial={{
-                                        y: 75,
-                                        opacity: 0,
-                                    }}
-                                    whileInView={{
-                                        y: 0,
-                                        opacity: 1,
-                                        transition: {
-                                            type: 'tween',
-                                            duration: .8,
-                                            ease: 'easeInOut'
-                                        }
-                                    }}
+                                    variants={item}
                                 />
                             </Flex>
                             <Box>
@@ -183,52 +144,25 @@ export const Contact = () => {
                                         color: 'palette.tertiary',
                                         fontSize: '.8rem'
                                     }}
-                                    // ANIMATION PROPS
                                     as={motion.input}
-                                    initial={{
-                                        y: 75,
-                                        opacity: 0,
-                                    }}
-                                    whileInView={{
-                                        y: 0,
-                                        opacity: 1,
-                                        transition: {
-                                            type: 'tween',
-                                            duration: .8,
-                                            ease: 'easeInOut'
-                                        }
-                                    }}
+                                    variants={item}
                                 />
                             </Box>
                             <Box>
                                 <Textarea
                                     placeholder='Your message here...'
                                     textAlign='start'
-                                    rows='5'
-                                    h='5rem'
-                                    bg='palette.primary'
+                                    p='1.5rem'
+                                    h='12rem'
                                     border='none'
+                                    bg='palette.primary'
                                     resize='none'
                                     _placeholder={{
                                         color: 'palette.tertiary',
                                         fontSize: '.8rem'
                                     }}
-
-                                    // ANIMATION PROPS
-                                    as={motion.input}
-                                    initial={{
-                                        y: 75,
-                                        opacity: 0,
-                                    }}
-                                    whileInView={{
-                                        y: 0,
-                                        opacity: 1,
-                                        transition: {
-                                            type: 'tween',
-                                            duration: .8,
-                                            ease: 'easeInOut'
-                                        }
-                                    }}
+                                    as={motion.textarea}
+                                    variants={item}
                                 />
                             </Box>
                             <Button
@@ -236,24 +170,9 @@ export const Contact = () => {
                                 w='100%'
                                 padding='1.6rem 1.5rem'
                                 alignSelf='flex-end'
-
                                 _hover={{}}
-
-                                // ANIMATION PROPS
                                 as={motion.button}
-                                initial={{
-                                    y: 75,
-                                    opacity: 0,
-                                }}
-                                whileInView={{
-                                    y: 0,
-                                    opacity: 1,
-                                    transition: {
-                                        type: 'tween',
-                                        duration: .8,
-                                        ease: 'easeInOut'
-                                    }
-                                }}
+                                variants={item}
                             >
                                 Send
                             </Button>

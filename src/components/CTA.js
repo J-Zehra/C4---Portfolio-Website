@@ -19,7 +19,7 @@ export const CTA = ({ ...props }) => {
             <CustomButton
                 leftIcon={<FaFolderOpen/>}
                 text='Portfolio'
-                props={props}
+                {...props}
             />
             <Button
                 pos='relative'
