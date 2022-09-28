@@ -44,7 +44,10 @@ export const About = () => {
                     '2xl': '75%',
                 }}
             >
-                <Box>
+                <Box
+                    bg='linear-gradient(#E0FBFC ,#A0B6D2)'
+                    backgroundClip='text'
+                >
                     <Text
                         textAlign='center'
                         fontSize='1.5rem'
@@ -65,6 +68,11 @@ export const About = () => {
                 <Flex
                     justifyContent='space-between'
                     alignItems='center'
+                    flexDir={{
+                        base: 'column',
+                        lg: 'row'
+                    }}
+                    gap='1.5rem'
 
                     as={motion.div}
                     variants={container}
@@ -111,7 +119,7 @@ export const About = () => {
                         <Text
                             bg='linear-gradient(#E0FBFC ,#8BA8CD)'
                             backgroundClip='text'
-                            
+
                             as={motion.h1}
                             variants={item}
                         >
@@ -121,7 +129,7 @@ export const About = () => {
                             w='60%'
                             bg='linear-gradient(#E0FBFC ,#A0B6D2)'
                             backgroundClip='text'
-                            
+
                             as={motion.p}
                             variants={item}
                         >

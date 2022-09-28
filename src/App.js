@@ -16,6 +16,8 @@ import { NavBar } from './components/NavBar';
 import { About } from './pages/About';
 import { Portfolio } from './pages/Portfolio';
 import { Contact } from './pages/Contact'
+import { Footer } from './components/Footer';
+import { Modal } from './components/Modal';
 
 export const App = () => {
 
@@ -29,6 +31,7 @@ export const App = () => {
           <Portfolio/>
           <Contact/>
         </>
+        <Footer/>
       </AppContext>
     </ChakraProvider>
   );

@@ -29,11 +29,17 @@ const styles = {
             fontSize: '.9rem'
         },
         h1: {
-            fontSize: '4.5rem',
+            fontSize: {
+                base: '3.5em',
+                md: '4.5rem'
+            },
             fontWeight: 'bold'
         },
         p: {
-            fontSize: '1rem',
+            fontSize: {
+                base: '.9rem',
+                md: '1rem'
+            },
             fontWeight: 'medium'
         }
     }

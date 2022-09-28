@@ -41,7 +41,6 @@ export const Home = () => {
             }}
             margin='auto'
         >
-            <Gradient />
 
             {/* HERO CONTENT */}
             <Flex

@@ -5,7 +5,7 @@ import { ApplicationContext } from '../context/AppContext'
 
 export const MenuContainer = () => {
 
-    const { toggled, scrolled } = useContext(ApplicationContext)
+    const { setToggled, toggled, scrolled } = useContext(ApplicationContext)
 
     const navLinks = [
         { link: '#home', label: 'Home' },
@@ -68,6 +68,7 @@ export const MenuContainer = () => {
                         color='palette.accent'
                         fontSize='1.2rem'
                         fontWeight='semibold'
+                        onClick={() => setToggled(!toggled)}
 
                         as={motion.a}
                         variants={item}
@@ -85,6 +86,7 @@ export const MenuContainer = () => {
                 transition='all .3s ease'
                 fontSize={scrolled ? '.9rem' : '.95rem'}
                 href='#contact'
+                onClick={() => setToggled(!toggled)}
                 _hover={{
                     bg: 'palette.accent',
                     color: 'palette.tertiary'

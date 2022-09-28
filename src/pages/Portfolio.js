@@ -1,6 +1,7 @@
-import { Box, Flex, Text, Wrap, WrapItem } from '@chakra-ui/react'
+import { Box, Flex, Text, useDisclosure, Wrap, WrapItem } from '@chakra-ui/react'
 import { motion, useInView } from 'framer-motion';
 import React, { useContext, useEffect, useRef } from 'react'
+import { Modal } from '../components/Modal';
 import { ApplicationContext } from '../context/AppContext';
 
 import { container, item } from '../miscellaneous/motionVariants'
@@ -29,6 +30,8 @@ export const Portfolio = () => {
         { title: 'Project 6' },
     ]
 
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
     return (
         <Box
             id='portfolio'
@@ -36,6 +39,10 @@ export const Portfolio = () => {
             ref={ref}
             pos='relative'
         >
+            <Modal
+                onClose={onClose}
+                isOpen={isOpen}
+            />
             <Flex
                 justifyContent='center'
                 flexDir='column'
@@ -51,6 +58,8 @@ export const Portfolio = () => {
             >
                 <Box
                     marginTop='16rem'
+                    bg='linear-gradient(#E0FBFC ,#A0B6D2)'
+                    backgroundClip='text'
                 >
                     <Text
                         textAlign='center'
@@ -91,6 +100,7 @@ export const Portfolio = () => {
                                 borderRadius='.5rem'
                                 boxShadow='2px 3px 20px rgba(0, 0, 0, .2)'
                                 cursor='pointer'
+                                onClick={onOpen}
 
                                 as={motion.div}
                                 variants={item}

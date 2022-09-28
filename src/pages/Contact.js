@@ -30,9 +30,9 @@ export const Contact = () => {
             <Box
                 id='contact'
                 w='100%'
-                h='100vh'
                 ref={ref}
                 bg='palette.secondary'
+                paddingBottom='5rem'
             >
                 <Flex
                     alignItems='center'
@@ -40,6 +40,10 @@ export const Contact = () => {
                     h='100%'
                     gap='1rem'
                     margin='auto'
+                    flexDir={{
+                        base: 'column',
+                        md: 'row'
+                    }}
                     w={{
                         base: '95%',
                         sm: '90%',
@@ -75,6 +79,8 @@ export const Contact = () => {
                             textAlign='center'
                             fontSize='1.6rem'
                             fontWeight='bold'
+                            bg='linear-gradient(#E0FBFC ,#A0B6D2)'
+                            backgroundClip='text'
 
                             as={motion.p}
                             variants={item}
@@ -87,6 +93,8 @@ export const Contact = () => {
                             marginTop='1.2rem'
                             color='palette.tertiary'
                             fontSize='.85rem'
+                            bg='linear-gradient(#E0FBFC ,#A0B6D2)'
+                            backgroundClip='text'
 
                             as={motion.p}
                             variants={item}
@@ -103,7 +111,10 @@ export const Contact = () => {
                             variants={item}
                         >
                             <Flex
-                                gap='6rem'
+                                gap={{
+                                    base: '2rem',
+                                    md: '6rem'
+                                }}
                                 flexDir={{
                                     base: 'column',
                                     md: 'row'
@@ -115,7 +126,7 @@ export const Contact = () => {
                                     border='none'
                                     p='1.5rem'
                                     _placeholder={{
-                                        color: 'palette.tertiary',
+                                        color: '#A0B6D2',
                                         fontSize: '.8rem'
                                     }}
                                     as={motion.input}
@@ -127,7 +138,7 @@ export const Contact = () => {
                                     border='none'
                                     p='1.5rem'
                                     _placeholder={{
-                                        color: 'palette.tertiary',
+                                        color: '#A0B6D2',
                                         fontSize: '.8rem'
                                     }}
                                     as={motion.input}
@@ -141,7 +152,7 @@ export const Contact = () => {
                                     border='none'
                                     p='1.5rem'
                                     _placeholder={{
-                                        color: 'palette.tertiary',
+                                        color: '#A0B6D2',
                                         fontSize: '.8rem'
                                     }}
                                     as={motion.input}
@@ -158,7 +169,7 @@ export const Contact = () => {
                                     bg='palette.primary'
                                     resize='none'
                                     _placeholder={{
-                                        color: 'palette.tertiary',
+                                        color: '#A0B6D2',
                                         fontSize: '.8rem'
                                     }}
                                     as={motion.textarea}
