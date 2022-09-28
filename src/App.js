@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   ChakraProvider,
 } from '@chakra-ui/react';
 import { Home } from './pages/Home';
-import { theme } from './miscellaneous/theme';
-import { AppContext } from './context/AppContext';
+import { theme, darkTheme } from './miscellaneous/theme';
+import { ApplicationContext } from './context/AppContext';
 
 import "@fontsource/poppins/400.css"
 import "@fontsource/poppins/500.css"
@@ -20,9 +20,10 @@ import { Footer } from './components/Footer';
 
 export const App = () => {
 
+  const { darkMode } = useContext(ApplicationContext);
+
   return (
-    <ChakraProvider theme={theme}>
-      <AppContext>
+    <ChakraProvider theme={darkMode ? darkTheme : theme}>
         <NavBar/>
         <>
           <Home/>
@@ -31,7 +32,6 @@ export const App = () => {
           <Contact/>
         </>
         <Footer/>
-      </AppContext>
     </ChakraProvider>
   );
 }

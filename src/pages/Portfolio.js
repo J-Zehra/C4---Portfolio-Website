@@ -8,7 +8,7 @@ import { container, item } from '../miscellaneous/motionVariants'
 
 export const Portfolio = () => {
 
-    const { setActiveNav } = useContext(ApplicationContext)
+    const { setActiveNav, darkMode } = useContext(ApplicationContext)
 
     const ref = useRef(null);
     const isInView = useInView(ref, {
@@ -58,7 +58,7 @@ export const Portfolio = () => {
             >
                 <Box
                     marginTop='16rem'
-                    bg='linear-gradient(#E0FBFC ,#A0B6D2)'
+                    bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                     backgroundClip='text'
                 >
                     <Text
@@ -96,9 +96,9 @@ export const Portfolio = () => {
                             <Flex
                                 w='20rem'
                                 h='18rem'
-                                bg='#323D50'
+                                bg={darkMode ? '#C7DBEE' : '#323D50'}
                                 borderRadius='.5rem'
-                                boxShadow='2px 3px 20px rgba(0, 0, 0, .2)'
+                                boxShadow='2px 3px 20px rgba(0, 0, 0, .1)'
                                 cursor='pointer'
                                 onClick={onOpen}
 

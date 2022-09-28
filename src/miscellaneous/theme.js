@@ -45,4 +45,36 @@ const styles = {
     }
 }
 
+const styles2 = {
+    global: {
+        html: {
+            scrollBehavior: 'smooth',
+            overflowX: 'hidden', 
+        },
+        body: {
+            bg: 'palette.tertiary',
+            color: 'palette.primary',
+        },
+        _placeholder: {
+            color: 'rgba(38, 50, 56, .6)',
+            fontSize: '.9rem'
+        },
+        h1: {
+            fontSize: {
+                base: '3.5em',
+                md: '4.5rem'
+            },
+            fontWeight: 'bold'
+        },
+        p: {
+            fontSize: {
+                base: '.9rem',
+                md: '1rem'
+            },
+            fontWeight: 'medium'
+        }
+    }
+}
+
 export const theme = extendTheme({ colors, fonts, styles });
+export const darkTheme = extendTheme({ colors, fonts, styles: styles2 });

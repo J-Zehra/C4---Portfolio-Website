@@ -1,12 +1,14 @@
 import { Button, Flex } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 import { FaFolderOpen } from 'react-icons/fa'
+import { ApplicationContext } from '../context/AppContext'
 import { CustomButton } from './CustomButton'
 
 export const CTA = ({ ...props }) => {
 
+    const { darkMode } = useContext(ApplicationContext)
     const [secondaryButtonHover, setSecondaryButtonHover] = useState(false)
 
     return (
@@ -34,7 +36,7 @@ export const CTA = ({ ...props }) => {
                     pos: 'absolute',
                     h:'.1rem',
                     w: secondaryButtonHover ? '6rem' : '1rem',
-                    bg: 'palette.tertiary',
+                    bg: darkMode ? 'palette.primary' : 'palette.tertiary',
                     bottom: 0,
                     transition:'all .3s ease'
                 }}

@@ -9,7 +9,7 @@ import { MenuContainer } from './MenuContainer'
 
 export const MobileMenu = () => {
 
-    const { toggled, setToggled } = useContext(ApplicationContext)
+    const { toggled, setToggled, darkMode } = useContext(ApplicationContext)
 
     return (
         <Flex
@@ -24,7 +24,7 @@ export const MobileMenu = () => {
                         as={motion.div}
                         layoutId='menu'
                         key='menu'
-                        color='palette.primary'
+                        color={darkMode ? 'palette.tertiary' : 'palette.primary'}
                         onClick={() => setToggled(!toggled)}
                         initial={{
                             opacity: 1

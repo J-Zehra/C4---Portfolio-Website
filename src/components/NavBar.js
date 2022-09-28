@@ -3,13 +3,14 @@ import { motion } from 'framer-motion'
 import React, { useContext } from 'react'
 
 import Logo from '../assets/Logo.png'
-import Logo2 from '../assets/Logo2.png'
 import { ApplicationContext } from '../context/AppContext'
 import { MobileMenu } from './MobileMenu'
 
+import { CgDarkMode } from 'react-icons/cg'
+
 export const NavBar = () => {
 
-    const { scrolled, activeNav, toggled } = useContext(ApplicationContext)
+    const { scrolled, activeNav, darkMode, setDarkMode } = useContext(ApplicationContext)
 
     const navLinks = [
         { link: '#home', label: 'Home' },
@@ -19,6 +20,11 @@ export const NavBar = () => {
 
     const navScrolledStyle = {
         bg: 'palette.secondary',
+        h: '4rem',
+        boxShadow: '1px 0 10px rgba(0, 0, 0, .050)',
+    }
+    const lightNavScrolledStyle = {
+        bg: '#D4E8F4',
         h: '4rem',
         boxShadow: '1px 0 10px rgba(0, 0, 0, .050)',
     }
@@ -59,6 +65,7 @@ export const NavBar = () => {
             zIndex='2'
             transition='all .3s ease'
             {...scrolled && navScrolledStyle}
+            {...scrolled && darkMode && lightNavScrolledStyle}
         >
             <Flex
                 w={{
@@ -86,8 +93,8 @@ export const NavBar = () => {
                 >
                     <Image
                         transition='all .3s ease'
-                        w={scrolled ? '4.9rem' : '5rem'}
-                        src={toggled ? Logo2 : Logo}
+                        w={scrolled ? '2.9rem' : '3rem'}
+                        src={Logo}
                     />
                 </Link>
 
@@ -137,24 +144,42 @@ export const NavBar = () => {
                         </Flex>
 
                         {/* Contact */}
-                        <Button
-                            bg='transparent'
-                            color='palette.accent'
-                            border='1px solid'
-                            borderColor='palette.accent'
-                            transition='all .3s ease'
-                            fontSize={scrolled ? '.9rem' : '.95rem'}
-                            href='#contact'
-                            {...activeNav === 3 && activeContactStyle}
-                            _hover={{
-                                bg: 'palette.accent',
-                                color: 'palette.tertiary'
-                            }}
-                            as={motion.a}
-                            variants={item}
+                        <Flex
+                            alignItems='center'
+                            gap='1rem'
                         >
-                            Contact
-                        </Button>
+                            <Button
+                                bg='transparent'
+                                color='palette.accent'
+                                border='1px solid'
+                                borderColor='palette.accent'
+                                transition='all .3s ease'
+                                fontSize={scrolled ? '.9rem' : '.95rem'}
+                                href='#contact'
+                                {...activeNav === 3 && activeContactStyle}
+                                _hover={{
+                                    bg: 'palette.accent',
+                                    color: 'palette.tertiary'
+                                }}
+                                as={motion.a}
+                                variants={item}
+                            >
+                                Contact
+                            </Button>
+                            <Box
+                                fontSize='1.8rem'
+                                color='#3D5A80'
+                                onClick={() => setDarkMode(!darkMode)}
+
+                                as={motion.div}
+                                variants={item}
+                                animate={{
+                                    rotate: darkMode ? 180 : 0
+                                }}
+                            >
+                                <CgDarkMode/>
+                            </Box>
+                        </Flex>
 
                     </>
                 )}

@@ -4,7 +4,9 @@ import React, { useContext, useEffect, useRef } from 'react'
 import { ApplicationContext } from '../context/AppContext';
 
 import BG from '../assets/aboutBg.png'
+import BG2 from '../assets/aboutBg2.png'
 import ProfilePicture from '../assets/aboutImage.png'
+import ProfilePicture2 from '../assets/aboutImage2.png'
 import { CustomButton } from '../components/CustomButton';
 import { BiDownload } from 'react-icons/bi'
 
@@ -12,7 +14,7 @@ import { container, item } from '../miscellaneous/motionVariants'
 
 export const About = () => {
 
-    const { setActiveNav } = useContext(ApplicationContext)
+    const { setActiveNav, darkMode } = useContext(ApplicationContext)
 
     const ref = useRef(null);
     const isInView = useInView(ref, {
@@ -45,7 +47,7 @@ export const About = () => {
                 }}
             >
                 <Box
-                    bg='linear-gradient(#E0FBFC ,#A0B6D2)'
+                    bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                     backgroundClip='text'
                 >
                     <Text
@@ -83,7 +85,7 @@ export const About = () => {
                         flex='1'
                     >
                         <Image
-                            src={ProfilePicture}
+                            src={darkMode ? ProfilePicture2 : ProfilePicture}
                             w='50%'
 
                             as={motion.img}
@@ -98,7 +100,7 @@ export const About = () => {
                         pos='relative'
                     >
                         <Image
-                            src={BG}
+                            src={darkMode ? BG2 : BG}
                             transform='scale(1.2)'
                             pos='absolute'
                             zIndex='-1'
@@ -108,7 +110,7 @@ export const About = () => {
                             variants={item}
                         />
                         <Text
-                            bg='linear-gradient(#E0FBFC ,#A0B6D2)'
+                            bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                             backgroundClip='text'
 
                             as={motion.p}
@@ -117,7 +119,7 @@ export const About = () => {
                             My name is,
                         </Text>
                         <Text
-                            bg='linear-gradient(#E0FBFC ,#8BA8CD)'
+                            bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                             backgroundClip='text'
 
                             as={motion.h1}
@@ -127,7 +129,7 @@ export const About = () => {
                         </Text>
                         <Text
                             w='60%'
-                            bg='linear-gradient(#E0FBFC ,#A0B6D2)'
+                            bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                             backgroundClip='text'
 
                             as={motion.p}

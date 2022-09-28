@@ -11,7 +11,7 @@ import { container, item } from '../miscellaneous/motionVariants'
 
 export const Contact = () => {
 
-    const { setActiveNav } = useContext(ApplicationContext)
+    const { setActiveNav, darkMode } = useContext(ApplicationContext)
 
     const ref = useRef(null);
     const isInView = useInView(ref, {
@@ -31,7 +31,7 @@ export const Contact = () => {
                 id='contact'
                 w='100%'
                 ref={ref}
-                bg='palette.secondary'
+                bg={darkMode ? '#D4E8F4' : 'palette.secondary'}
                 paddingBottom='5rem'
             >
                 <Flex
@@ -79,7 +79,7 @@ export const Contact = () => {
                             textAlign='center'
                             fontSize='1.6rem'
                             fontWeight='bold'
-                            bg='linear-gradient(#E0FBFC ,#A0B6D2)'
+                            bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                             backgroundClip='text'
 
                             as={motion.p}
@@ -93,7 +93,7 @@ export const Contact = () => {
                             marginTop='1.2rem'
                             color='palette.tertiary'
                             fontSize='.85rem'
-                            bg='linear-gradient(#E0FBFC ,#A0B6D2)'
+                            bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                             backgroundClip='text'
 
                             as={motion.p}
@@ -122,7 +122,7 @@ export const Contact = () => {
                             >
                                 <Input
                                     placeholder='First Name'
-                                    bg='palette.primary'
+                                    bg={darkMode ? '#C7DBEE' : 'palette.primary'}
                                     border='none'
                                     p='1.5rem'
                                     _placeholder={{
@@ -134,7 +134,7 @@ export const Contact = () => {
                                 />
                                 <Input
                                     placeholder='Last Name'
-                                    bg='palette.primary'
+                                    bg={darkMode ? '#C7DBEE' : 'palette.primary'}
                                     border='none'
                                     p='1.5rem'
                                     _placeholder={{
@@ -148,7 +148,7 @@ export const Contact = () => {
                             <Box>
                                 <Input
                                     placeholder='Email'
-                                    bg='palette.primary'
+                                    bg={darkMode ? '#C7DBEE' : 'palette.primary'}
                                     border='none'
                                     p='1.5rem'
                                     _placeholder={{
@@ -166,7 +166,7 @@ export const Contact = () => {
                                     p='1.5rem'
                                     h='12rem'
                                     border='none'
-                                    bg='palette.primary'
+                                    bg={darkMode ? '#C7DBEE' : 'palette.primary'}
                                     resize='none'
                                     _placeholder={{
                                         color: '#A0B6D2',
@@ -184,6 +184,7 @@ export const Contact = () => {
                                 _hover={{}}
                                 as={motion.button}
                                 variants={item}
+                                color='palette.tertiary'
                             >
                                 Send
                             </Button>

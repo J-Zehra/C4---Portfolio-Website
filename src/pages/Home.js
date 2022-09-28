@@ -1,7 +1,6 @@
 import { Box, Flex, Image, Text } from '@chakra-ui/react'
 import { motion, useInView } from 'framer-motion'
 import React, { useContext, useEffect, useRef } from 'react'
-import { Gradient } from '../assets/svg_component/Gradient'
 import { ApplicationContext } from '../context/AppContext'
 
 import HeroImage from '../assets/heroImage.png'
@@ -11,7 +10,7 @@ import { container, item } from '../miscellaneous/motionVariants'
 
 export const Home = () => {
 
-    const { setActiveNav } = useContext(ApplicationContext)
+    const { setActiveNav, darkMode } = useContext(ApplicationContext)
 
     const ref = useRef(null);
     const isInView = useInView(ref, {
@@ -62,7 +61,7 @@ export const Home = () => {
                 >
                     {/* TEXTS */}
                     <Text
-                        bg='linear-gradient(#E0FBFC ,#A0B6D2)'
+                        bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                         backgroundClip='text'
                         as={motion.p}
                         variants={item}
@@ -70,7 +69,7 @@ export const Home = () => {
                         Hi, I am Darren,
                     </Text>
                     <Text
-                        bg='linear-gradient(#E0FBFC ,#8BA8CD)'
+                        bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                         backgroundClip='text'
                         as={motion.h1}
                         variants={item}
@@ -79,7 +78,7 @@ export const Home = () => {
                     </Text>
                     <Text
                         w='60%'
-                        bg='linear-gradient(#E0FBFC ,#A0B6D2)'
+                        bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                         backgroundClip='text'
                         as={motion.p}
                         variants={item}
@@ -91,7 +90,7 @@ export const Home = () => {
                     </Text>
 
                     {/* CTA */}
-                    <CTA 
+                    <CTA
                         variants={item}
                     />
                 </Flex>
