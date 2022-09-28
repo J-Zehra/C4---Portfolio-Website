@@ -1,10 +1,15 @@
-import { Button, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text } from '@chakra-ui/react'
+import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text } from '@chakra-ui/react'
 import React from 'react'
 
-export const Modal = ({ isOpen, onClose }) => {
+export const CustomModal = ({ isOpen, onClose }) => {
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal
+            isOpen={isOpen}
+            onClose={onClose}
+            isCentered
+            closeOnOverlayClick
+        >
             <ModalOverlay />
             <ModalContent>
                 <ModalHeader>Modal Title</ModalHeader>

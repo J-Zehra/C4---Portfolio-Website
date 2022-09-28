@@ -1,7 +1,7 @@
 import { Box, Flex, Text, useDisclosure, Wrap, WrapItem } from '@chakra-ui/react'
 import { motion, useInView } from 'framer-motion';
 import React, { useContext, useEffect, useRef } from 'react'
-import { Modal } from '../components/Modal';
+import { CustomModal } from '../components/CustomModal';
 import { ApplicationContext } from '../context/AppContext';
 
 import { container, item } from '../miscellaneous/motionVariants'
@@ -39,7 +39,7 @@ export const Portfolio = () => {
             ref={ref}
             pos='relative'
         >
-            <Modal
+            <CustomModal
                 onClose={onClose}
                 isOpen={isOpen}
             />
