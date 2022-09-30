@@ -1,17 +1,23 @@
-import { Box, Button, Flex, Input, Text, Textarea } from '@chakra-ui/react'
+import { Box, Button, Flex, Input, Text, Textarea, useToast } from '@chakra-ui/react'
 import { motion, useInView } from 'framer-motion';
-import React, { useContext, useEffect, useRef } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { ApplicationContext } from '../context/AppContext';
 
 import Lottie from 'react-lottie-player'
 import lottieJson from '../assets/lottieJson.json'
 import { Wave } from '../assets/svg_component/Wave';
+import { emailService } from '../services/emailService.'
 
 import { container, item } from '../miscellaneous/motionVariants'
 
 export const Contact = () => {
 
+    const toast = useToast()
     const { setActiveNav, darkMode } = useContext(ApplicationContext)
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [email, setEmail] = useState('')
+    const [message, setMessage] = useState('')
 
     const ref = useRef(null);
     const isInView = useInView(ref, {
@@ -23,6 +29,42 @@ export const Contact = () => {
             setActiveNav(3);
         }
     }, [isInView, setActiveNav])
+
+    const sendEmail = () => {
+        if (!firstName || !lastName || !email || !message) {
+            toast({
+                title: 'Error',
+                description: "Please fill all the fields",
+                status: 'error',
+                duration: 9000,
+                isClosable: true,
+            })
+            return
+        }
+
+        const params = {
+            firstName,
+            lastName,
+            email,
+            message,
+            myEmail: process.env.REACT_APP_EMAILJS_OWNER_EMAIL
+        }
+
+        emailService(params);
+
+        toast({
+            title: 'Sent',
+            description: "Will get back to you shortly",
+            status: 'success',
+            duration: 9000,
+            isClosable: true,
+        })
+
+        setFirstName('')
+        setLastName('')
+        setEmail('')
+        setMessage('')
+    }
 
     return (
         <>
@@ -125,6 +167,8 @@ export const Contact = () => {
                                     bg={darkMode ? '#C7DBEE' : 'palette.primary'}
                                     border='none'
                                     p='1.5rem'
+                                    value={firstName}
+                                    onChange={(e) => setFirstName(e.target.value)}
                                     _placeholder={{
                                         color: '#A0B6D2',
                                         fontSize: '.8rem'
@@ -137,6 +181,8 @@ export const Contact = () => {
                                     bg={darkMode ? '#C7DBEE' : 'palette.primary'}
                                     border='none'
                                     p='1.5rem'
+                                    value={lastName}
+                                    onChange={(e) => setLastName(e.target.value)}
                                     _placeholder={{
                                         color: '#A0B6D2',
                                         fontSize: '.8rem'
@@ -151,6 +197,8 @@ export const Contact = () => {
                                     bg={darkMode ? '#C7DBEE' : 'palette.primary'}
                                     border='none'
                                     p='1.5rem'
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
                                     _placeholder={{
                                         color: '#A0B6D2',
                                         fontSize: '.8rem'
@@ -168,6 +216,8 @@ export const Contact = () => {
                                     border='none'
                                     bg={darkMode ? '#C7DBEE' : 'palette.primary'}
                                     resize='none'
+                                    value={message}
+                                    onChange={(e) => setMessage(e.target.value)}
                                     _placeholder={{
                                         color: '#A0B6D2',
                                         fontSize: '.8rem'
@@ -185,6 +235,7 @@ export const Contact = () => {
                                 as={motion.button}
                                 variants={item}
                                 color='palette.tertiary'
+                                onClick={sendEmail}
                             >
                                 Send
                             </Button>

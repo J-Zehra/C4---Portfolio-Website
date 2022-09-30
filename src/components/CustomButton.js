@@ -37,7 +37,7 @@ export const CustomButton = ({ leftIcon, text, ...props }) => {
                     alignItems='center'
                     justifyContent='center'
                     borderRadius='.5rem 0 0 .5rem'
-                    opacity={buttonHover ? '1' : '.7'}
+                    opacity={buttonHover ? '1' : '.9'}
                 >
                     <Text
                         color={darkMode ? 'palette.tertiary' : '#293241'}
