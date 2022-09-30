@@ -6,12 +6,14 @@ import HeroImage from '../assets/heroImage.png'
 import { CTA } from '../components/CTA'
 import { container, item } from '../miscellaneous/motionVariants'
 import { useFetchContents } from '../miscellaneous/useFetchContents'
+import Logo1 from '../assets/UniLogo1.svg'
+import Logo2 from '../assets/UniLogo2.png'
 
 export const Home = () => {
 
     // GET THE STATES FROM THE CONTEXT
     const { setActiveNav, darkMode } = useContext(ApplicationContext)
-    const [ data ] = useFetchContents("home");
+    const [data] = useFetchContents("home");
 
     // SET THE REF FOR THE ELEMENT TO TRACK
     const ref = useRef(null);
@@ -112,6 +114,25 @@ export const Home = () => {
                     <CTA
                         variants={item}
                     />
+                    <Flex
+                        justifyContent='center'
+                        alignItems='center'
+                        gap='2rem'
+                        marginTop='5rem'
+                    >
+                        <Image 
+                            src={Logo1} 
+                            w='12rem'
+                            filter='grayscale(90%)'
+                            opacity='.3'
+                        />
+                        <Image 
+                            src={Logo2} 
+                            w='12rem'
+                            filter='grayscale(90%)'
+                            opacity='.2'
+                        />
+                    </Flex>
                 </Flex>
                 <Box
                     flex='1'
