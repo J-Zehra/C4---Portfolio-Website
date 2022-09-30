@@ -11,7 +11,7 @@ export const Home = () => {
 
     // GET THE STATES FROM THE CONTEXT
     const { setActiveNav, darkMode } = useContext(ApplicationContext)
-    const [ data, loading ] = useFetchContents("home");
+    const [ data ] = useFetchContents("home");
 
     // SET THE REF FOR THE ELEMENT TO TRACK
     const ref = useRef(null);
@@ -55,6 +55,7 @@ export const Home = () => {
                 variants={container}
                 initial='hidden'
                 whileInView='show'
+                viewport={{ once: true }}
             >
                 <Flex
                     flexDir='column'

@@ -92,6 +92,7 @@ export const Portfolio = () => {
                     variants={container}
                     whileInView='show'
                     initial='hidden'
+                    viewport={{ once: true }}
                 >
                     {projectList.map((project, index) => {
                         return(

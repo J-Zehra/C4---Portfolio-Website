@@ -12,7 +12,7 @@ import { CgDarkMode } from 'react-icons/cg'
 export const NavBar = () => {
 
     // GET THE STATES FROM THE CONTEXT
-    const { scrolled, activeNav, darkMode, setDarkMode } = useContext(ApplicationContext)
+    const { scrolled, activeNav, darkMode, setDarkMode, toggled } = useContext(ApplicationContext)
 
     // INITIALIZE THE ARRAY OF NAV LINKS TO BE MAPPED
     const navLinks = [
@@ -99,7 +99,7 @@ export const NavBar = () => {
                     <Image
                         transition='all .3s ease'
                         w={scrolled ? '2.9rem' : '3rem'}
-                        src={darkMode ? Logo : Logo2}
+                        src={darkMode ? Logo : !toggled ? Logo2 : Logo}
                     />
                 </Link>
 

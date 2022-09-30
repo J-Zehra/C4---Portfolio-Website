@@ -112,6 +112,7 @@ export const Contact = () => {
                     variants={container}
                     whileInView='show'
                     initial='hidden'
+                    viewport={{ once: true }}
                 >
                     <Box
                         flex='1'

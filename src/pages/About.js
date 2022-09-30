@@ -17,7 +17,7 @@ export const About = () => {
 
     // GET THE STATES FROM THE CONTEXT
     const { setActiveNav, darkMode } = useContext(ApplicationContext)
-    const [ data, loading ] = useFetchContents("about")
+    const [ data ] = useFetchContents("about")
 
     // SET THE REF FOR THE ELEMENT TO TRACK
     const ref = useRef(null);
@@ -85,6 +85,7 @@ export const About = () => {
                     variants={container}
                     whileInView='show'
                     initial='hidden'
+                    viewport={{ once: true }}
                 >
                     <Flex
                         flex='1'

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   ChakraProvider,
 } from '@chakra-ui/react';
@@ -17,21 +17,39 @@ import { About } from './pages/About';
 import { Portfolio } from './pages/Portfolio';
 import { Contact } from './pages/Contact'
 import { Footer } from './components/Footer';
+import { Spinner } from './components/Spinner';
 
 export const App = () => {
 
   const { darkMode } = useContext(ApplicationContext);
+  const [showSplashScreen, setShowSplashScreen] = useState(true);
+
+  useEffect(() => {
+    const timer = async() => {
+      setShowSplashScreen(true)
+      setTimeout(() => {
+        setShowSplashScreen(false)
+      }, 2500)
+    }
+
+    timer()
+  }, [])
 
   return (
     <ChakraProvider theme={darkMode ? darkTheme : theme}>
-        <NavBar/>
+      { showSplashScreen ? <Spinner/> : (
         <>
-          <Home/>
-          <About/>
-          <Portfolio/>
-          <Contact/>
+          <NavBar/>
+          <>
+            <Home/>
+            <About/>
+            <Portfolio/>
+            <Contact/>
+          </>
+          <Footer/>        
         </>
-        <Footer/>
+      ) }
+
     </ChakraProvider>
   );
 }
