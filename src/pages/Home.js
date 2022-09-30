@@ -130,7 +130,7 @@ export const Home = () => {
                             src={Logo2} 
                             w='12rem'
                             filter='grayscale(90%)'
-                            opacity='.2'
+                            opacity='.3'
                         />
                     </Flex>
                 </Flex>
