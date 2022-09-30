@@ -15,14 +15,17 @@ import { useFetchContents } from '../miscellaneous/useFetchContents';
 
 export const About = () => {
 
+    // GET THE STATES FROM THE CONTEXT
     const { setActiveNav, darkMode } = useContext(ApplicationContext)
     const [ data, loading ] = useFetchContents("about")
 
+    // SET THE REF FOR THE ELEMENT TO TRACK
     const ref = useRef(null);
     const isInView = useInView(ref, {
         margin: '-50% 0px -50% 0px'
     });
 
+    // SET THE ACTIVE NAV TO BE THE INDEX 0 WHEN THIS COMPONENT IS VISIBLE ON THE SCREEN
     useEffect(() => {
         if (isInView) {
             setActiveNav(1);
@@ -89,6 +92,7 @@ export const About = () => {
                         alignItems='center'
                         w='90%'
                     >
+                        {/* PROFILE PICTURE */}
                         <Image
                             src={darkMode ? ProfilePicture2 : ProfilePicture}
 

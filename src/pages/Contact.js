@@ -12,25 +12,35 @@ import { container, item } from '../miscellaneous/motionVariants'
 
 export const Contact = () => {
 
-    const toast = useToast()
+    // GET THE STATES FROM THE CONTEXT
     const { setActiveNav, darkMode } = useContext(ApplicationContext)
+
+    // INITIALIZE THE TOAST
+    const toast = useToast();
+
+    // INITIALIZE THE PARAMETERS TO BE SENT TO THE API
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
 
+    // SET THE REF FOR THE ELEMENT TO TRACK
     const ref = useRef(null);
     const isInView = useInView(ref, {
         margin: '-50% 0px -50% 0px'
     });
 
+    // SET THE ACTIVE NAV TO BE THE INDEX 0 WHEN THIS COMPONENT IS VISIBLE ON THE SCREEN
     useEffect(() => {
         if (isInView) {
             setActiveNav(3);
         }
     }, [isInView, setActiveNav])
 
+    // SEND MAIL FUNCTION THAT WILL RUN WHENEVER THE SEND BUTTON IS CLICKED
     const sendEmail = () => {
+
+        // CHECK IF THE FIELDS ARE ALL FILLED. OTHERWISE THROW AN ERROR TOAST
         if (!firstName || !lastName || !email || !message) {
             toast({
                 title: 'Error',
@@ -42,6 +52,7 @@ export const Contact = () => {
             return
         }
 
+        // SET THE PARAMS
         const params = {
             firstName,
             lastName,
@@ -50,8 +61,10 @@ export const Contact = () => {
             myEmail: process.env.REACT_APP_EMAILJS_OWNER_EMAIL
         }
 
+        // SEND THE PARAMETERS TO THE EMAIL SERVICE
         emailService(params);
 
+        // THROW A SUCCESS TOAST AFTER ACCOMPLISHING
         toast({
             title: 'Sent',
             description: "Will get back to you shortly",
@@ -60,6 +73,7 @@ export const Contact = () => {
             isClosable: true,
         })
 
+        // SET ALL THE INPUT FIELDS BACK TO AN EMPTY STRING
         setFirstName('')
         setLastName('')
         setEmail('')

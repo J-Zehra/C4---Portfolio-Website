@@ -2,25 +2,24 @@ import { Box, Flex, Image, Text } from '@chakra-ui/react'
 import { motion, useInView } from 'framer-motion'
 import React, { useContext, useEffect, useRef } from 'react'
 import { ApplicationContext } from '../context/AppContext'
-
 import HeroImage from '../assets/heroImage.png'
 import { CTA } from '../components/CTA'
 import { container, item } from '../miscellaneous/motionVariants'
 import { useFetchContents } from '../miscellaneous/useFetchContents'
 
-
 export const Home = () => {
 
+    // GET THE STATES FROM THE CONTEXT
     const { setActiveNav, darkMode } = useContext(ApplicationContext)
     const [ data, loading ] = useFetchContents("home");
 
-    console.log(data);
-
+    // SET THE REF FOR THE ELEMENT TO TRACK
     const ref = useRef(null);
     const isInView = useInView(ref, {
         margin: '-50% 0px -50% 0px'
     });
 
+    // SET THE ACTIVE NAV TO BE THE INDEX 0 WHEN THIS COMPONENT IS VISIBLE ON THE SCREEN
     useEffect(() => {
         if (isInView) {
             setActiveNav(0);

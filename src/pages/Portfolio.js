@@ -8,19 +8,23 @@ import { container, item } from '../miscellaneous/motionVariants'
 
 export const Portfolio = () => {
 
+    // GET THE STATES FROM THE CONTEXT
     const { setActiveNav, darkMode } = useContext(ApplicationContext)
 
+    // SET THE REF FOR THE ELEMENT TO TRACK
     const ref = useRef(null);
     const isInView = useInView(ref, {
         margin: '-50% 0px -50% 0px'
     });
 
+    // SET THE ACTIVE NAV TO BE THE INDEX 0 WHEN THIS COMPONENT IS VISIBLE ON THE SCREEN
     useEffect(() => {
         if (isInView) {
             setActiveNav(2);
         }
     }, [isInView, setActiveNav])
 
+    // DUMMY PROJECTS TO BE MAPPED
     const projectList = [
         { title: 'Project 1' },
         { title: 'Project 2' },
@@ -30,6 +34,7 @@ export const Portfolio = () => {
         { title: 'Project 6' },
     ]
 
+    // CONTROLLER FOR THE MODAL
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     return (

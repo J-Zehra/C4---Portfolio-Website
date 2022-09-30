@@ -26,6 +26,7 @@ export const AppContext = ({ children }) => {
         window.addEventListener('scroll', handleScroll);
     })
 
+    // SET THE VALUES
     const values = {
         scrolled,
         activeNav,

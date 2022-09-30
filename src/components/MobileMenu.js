@@ -11,6 +11,7 @@ import { CgDarkMode } from 'react-icons/cg'
 
 export const MobileMenu = () => {
 
+     // GET THE STATES FROM THE CONTEXT
     const { toggled, setToggled, darkMode, setDarkMode } = useContext(ApplicationContext)
 
     return (

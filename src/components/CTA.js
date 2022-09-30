@@ -8,7 +8,10 @@ import { CustomButton } from './CustomButton'
 
 export const CTA = ({ ...props }) => {
 
+    // GET THE STATES FROM THE CONTEXT
     const { darkMode } = useContext(ApplicationContext)
+
+    // SET A VARIABLE STATE FOR A HOVER EVENT
     const [secondaryButtonHover, setSecondaryButtonHover] = useState(false)
 
     return (

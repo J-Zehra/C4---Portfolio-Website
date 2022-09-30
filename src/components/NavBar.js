@@ -11,14 +11,17 @@ import { CgDarkMode } from 'react-icons/cg'
 
 export const NavBar = () => {
 
+    // GET THE STATES FROM THE CONTEXT
     const { scrolled, activeNav, darkMode, setDarkMode } = useContext(ApplicationContext)
 
+    // INITIALIZE THE ARRAY OF NAV LINKS TO BE MAPPED
     const navLinks = [
         { link: '#home', label: 'Home' },
         { link: '#about', label: 'About' },
         { link: '#portfolio', label: 'Portfolio' },
     ]
 
+    // CONDITIONAL STYLES
     const navScrolledStyle = {
         bg: 'palette.secondary',
         h: '4rem',
@@ -40,6 +43,7 @@ export const NavBar = () => {
         color: 'palette.tertiary'
     }
 
+    // ANIMATION VARIANTS
     const container = {
         hidden: { opacity: 0 },
         show: {

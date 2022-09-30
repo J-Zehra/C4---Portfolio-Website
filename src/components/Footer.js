@@ -7,6 +7,7 @@ import { AiFillInstagram } from 'react-icons/ai'
 
 export const Footer = () => {
 
+    // LINKS TO BE MAPPED
     const socialLinks = [
         { label: 'Facebook', logo: <FaFacebook/> },
         { label: 'Twitter', logo: <AiFillTwitterCircle/> },

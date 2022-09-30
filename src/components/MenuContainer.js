@@ -5,14 +5,17 @@ import { ApplicationContext } from '../context/AppContext'
 
 export const MenuContainer = () => {
 
+     // GET THE STATES FROM THE CONTEXT
     const { setToggled, toggled, scrolled, darkMode } = useContext(ApplicationContext)
 
+     // INITIALIZE THE ARRAY OF NAV LINKS TO BE MAPPED
     const navLinks = [
         { link: '#home', label: 'Home' },
         { link: '#about', label: 'About' },
         { link: '#portfolio', label: 'Portfolio' },
     ]
 
+    // ANIMATION VARIANTS
     const container = {
         hidden: { opacity: 0 },
         show: {

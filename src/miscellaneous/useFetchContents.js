@@ -13,9 +13,7 @@ export const useFetchContents = (type) => {
                 setLoading(false)
             })
         }
-
         fetch();
-
     }, [type])
 
     return [ data, loading ]

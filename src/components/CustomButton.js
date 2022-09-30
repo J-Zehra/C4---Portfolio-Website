@@ -5,8 +5,11 @@ import { ApplicationContext } from '../context/AppContext'
 
 export const CustomButton = ({ leftIcon, text, ...props }) => {
 
-    const [buttonHover, setButtonHover] = useState(false)
+    // GET THE STATES FROM THE CONTEXT
     const { darkMode } = useContext(ApplicationContext)
+
+    // SET A VARIABLE STATE FOR A HOVER EVENT
+    const [buttonHover, setButtonHover] = useState(false)
 
     return (
         <Button
