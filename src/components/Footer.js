@@ -27,12 +27,13 @@ export const Footer = () => {
             </Text>
 
             <Flex
-                gap='1rem'
+                gap='2rem'
             >
                 { socialLinks.map((social, index) => {
                     return(
                         <Box 
                             key={index}
+                            fontSize='1.5rem'
                         >
                             { social.logo }
                         </Box>

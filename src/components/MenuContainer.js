@@ -5,7 +5,7 @@ import { ApplicationContext } from '../context/AppContext'
 
 export const MenuContainer = () => {
 
-    const { setToggled, toggled, scrolled } = useContext(ApplicationContext)
+    const { setToggled, toggled, scrolled, darkMode } = useContext(ApplicationContext)
 
     const navLinks = [
         { link: '#home', label: 'Home' },
@@ -35,7 +35,7 @@ export const MenuContainer = () => {
 
     const item = {
         hidden: { opacity: 0, y: -20 },
-        show: { 
+        show: {
             opacity: 1,
             y: 0,
         }
@@ -43,7 +43,7 @@ export const MenuContainer = () => {
 
     return (
         <Flex
-            bg='palette.tertiary'
+            bg={darkMode ? 'palette.primary' :  'palette.tertiary'}
             pos='fixed'
             zIndex='-1'
             w='2rem'

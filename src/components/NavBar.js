@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import React, { useContext } from 'react'
 
 import Logo from '../assets/Logo.png'
+import Logo2 from '../assets/Logo2.png'
 import { ApplicationContext } from '../context/AppContext'
 import { MobileMenu } from './MobileMenu'
 
@@ -94,7 +95,7 @@ export const NavBar = () => {
                     <Image
                         transition='all .3s ease'
                         w={scrolled ? '2.9rem' : '3rem'}
-                        src={Logo}
+                        src={darkMode ? Logo : Logo2}
                     />
                 </Link>
 
@@ -147,6 +148,9 @@ export const NavBar = () => {
                         <Flex
                             alignItems='center'
                             gap='1rem'
+
+                            as={motion.div}
+                            variants={item}
                         >
                             <Button
                                 bg='transparent'
@@ -161,8 +165,6 @@ export const NavBar = () => {
                                     bg: 'palette.accent',
                                     color: 'palette.tertiary'
                                 }}
-                                as={motion.a}
-                                variants={item}
                             >
                                 Contact
                             </Button>
@@ -172,7 +174,6 @@ export const NavBar = () => {
                                 onClick={() => setDarkMode(!darkMode)}
 
                                 as={motion.div}
-                                variants={item}
                                 animate={{
                                     rotate: darkMode ? 180 : 0
                                 }}

@@ -11,10 +11,12 @@ import { CustomButton } from '../components/CustomButton';
 import { BiDownload } from 'react-icons/bi'
 
 import { container, item } from '../miscellaneous/motionVariants'
+import { useFetchContents } from '../miscellaneous/useFetchContents';
 
 export const About = () => {
 
     const { setActiveNav, darkMode } = useContext(ApplicationContext)
+    const [ data, loading ] = useFetchContents("about")
 
     const ref = useRef(null);
     const isInView = useInView(ref, {
@@ -74,37 +76,48 @@ export const About = () => {
                         base: 'column',
                         lg: 'row'
                     }}
-                    gap='1.5rem'
+                    gap='6rem'
 
                     as={motion.div}
                     variants={container}
                     whileInView='show'
                     initial='hidden'
                 >
-                    <Box
+                    <Flex
                         flex='1'
+                        justifyContent='center'
+                        alignItems='center'
+                        w='90%'
                     >
                         <Image
                             src={darkMode ? ProfilePicture2 : ProfilePicture}
-                            w='50%'
 
                             as={motion.img}
                             variants={item}
                         />
-                    </Box>
+                    </Flex>
                     <Flex
                         justifyContent='center'
-                        alignItems='start'
+                        alignItems={{
+                            base: 'center',
+                            lg: 'start'
+                        }}
                         flex='1'
                         flexDir='column'
                         pos='relative'
                     >
                         <Image
                             src={darkMode ? BG2 : BG}
-                            transform='scale(1.2)'
                             pos='absolute'
                             zIndex='-1'
-                            left='-2.5rem'
+                            display={{
+                                base: 'none',
+                                lg: 'block'
+                            }}
+                            left={{
+                                base:'0',
+                                lg:'-3.5rem'
+                            }}
 
                             as={motion.img}
                             variants={item}
@@ -113,6 +126,7 @@ export const About = () => {
                             bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                             backgroundClip='text'
 
+                            fontSize='1rem'
                             as={motion.p}
                             variants={item}
                         >
@@ -122,23 +136,33 @@ export const About = () => {
                             bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                             backgroundClip='text'
 
+                            textAlign={{
+                                base: 'center',
+                                lg: 'start'
+                            }}
+                            fontSize='3rem'
                             as={motion.h1}
                             variants={item}
                         >
-                            Darren Jay Angulo
+                            { data[0]?.name}
                         </Text>
                         <Text
-                            w='60%'
+                            w={{
+                                base: '90%',
+                                lg: '60%'
+                            }}
                             bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                             backgroundClip='text'
+                            textAlign={{
+                                base: 'center',
+                                lg: 'start'
+                            }}
 
+                            fontSize='1rem'
                             as={motion.p}
                             variants={item}
                         >
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                            nisi ut aliquip ex ea commodo consequat
+                            { data[0]?.description }
                         </Text>
                         <CustomButton
                             text='Download CV'

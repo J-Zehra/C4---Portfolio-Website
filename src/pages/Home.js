@@ -6,11 +6,15 @@ import { ApplicationContext } from '../context/AppContext'
 import HeroImage from '../assets/heroImage.png'
 import { CTA } from '../components/CTA'
 import { container, item } from '../miscellaneous/motionVariants'
+import { useFetchContents } from '../miscellaneous/useFetchContents'
 
 
 export const Home = () => {
 
     const { setActiveNav, darkMode } = useContext(ApplicationContext)
+    const [ data, loading ] = useFetchContents("home");
+
+    console.log(data);
 
     const ref = useRef(null);
     const isInView = useInView(ref, {
@@ -56,37 +60,52 @@ export const Home = () => {
                 <Flex
                     flexDir='column'
                     justifyContent='center'
-                    alignItems='flex-start'
+                    alignItems={{
+                        base: 'center',
+                        lg: 'flex-start'
+                    }}
                     flex='1'
                 >
                     {/* TEXTS */}
                     <Text
                         bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                         backgroundClip='text'
+                        textAlign={{
+                            base: 'center',
+                            lg: 'start'
+                        }}
                         as={motion.p}
                         variants={item}
                     >
-                        Hi, I am Darren,
+                        {`Hi, I am ${data[0]?.name}`},
                     </Text>
                     <Text
                         bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                         backgroundClip='text'
+                        textAlign={{
+                            base: 'center',
+                            lg: 'start'
+                        }}
                         as={motion.h1}
                         variants={item}
                     >
-                        Software Engineer.
+                        {`${data[0]?.profession}.`}
                     </Text>
                     <Text
-                        w='60%'
+                        w={{
+                            base: '90%',
+                            lg: '60%'
+                        }}
                         bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                         backgroundClip='text'
+                        textAlign={{
+                            base: 'center',
+                            lg: 'start'
+                        }}
                         as={motion.p}
                         variants={item}
                     >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo consequat
+                        {`${data[0]?.description}`}
                     </Text>
 
                     {/* CTA */}
@@ -98,6 +117,10 @@ export const Home = () => {
                     flex='1'
                     as={motion.div}
                     variants={item}
+                    display={{
+                        base: 'none',
+                        lg: 'block'
+                    }}
                     whileHover={{
                         scale: 1.02,
                         transition: {
