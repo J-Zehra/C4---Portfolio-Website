@@ -142,7 +142,7 @@ export const Contact = () => {
                             as={motion.p}
                             variants={item}
                         >
-                            Send us a message
+                            Send me a message
                         </Text>
                         <Text
                             textAlign='center'
@@ -156,7 +156,7 @@ export const Contact = () => {
                             as={motion.p}
                             variants={item}
                         >
-                            Let us hear your ideas. Contact us and let's start working together
+                            Contact me for more info and let's start working together
                         </Text>
                         <Flex
                             margin='auto'
