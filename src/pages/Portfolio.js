@@ -30,8 +30,8 @@ export const Portfolio = () => {
         { title: 'Project 2' },
         { title: 'Project 3' },
         { title: 'Project 4' },
-        { title: 'Project 5' },
-        { title: 'Project 6' },
+        // { title: 'Project 5' },
+        // { title: 'Project 6' },
     ]
 
     // CONTROLLER FOR THE MODAL
@@ -100,8 +100,8 @@ export const Portfolio = () => {
                             key={index}
                         >
                             <Flex
-                                w='20rem'
-                                h='18rem'
+                                w='28rem'
+                                h='25rem'
                                 bg={darkMode ? '#C7DBEE' : '#323D50'}
                                 borderRadius='.5rem'
                                 boxShadow='2px 3px 20px rgba(0, 0, 0, .1)'
@@ -111,7 +111,7 @@ export const Portfolio = () => {
                                 as={motion.div}
                                 variants={item}
                                 whileHover={{
-                                    scale: 1.01
+                                    scale: 1.02
                                 }}
                             >
 

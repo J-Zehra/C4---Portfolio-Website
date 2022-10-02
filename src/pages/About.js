@@ -34,6 +34,7 @@ export const About = () => {
 
     return (
         <Box
+            marginTop='-8rem'
             id='about'
             w='100%'
             ref={ref}
