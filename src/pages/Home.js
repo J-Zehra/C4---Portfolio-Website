@@ -79,7 +79,7 @@ export const Home = () => {
                         as={motion.p}
                         variants={item}
                     >
-                        {`Hi, I am ${data[0]?.name}`},
+                        {/* {`Hi, I am ${data[0]?.name}`}, */}
                     </Text>
                     <Text
                         bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}

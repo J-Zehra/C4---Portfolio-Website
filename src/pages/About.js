@@ -145,7 +145,7 @@ export const About = () => {
                                 base: 'center',
                                 lg: 'start'
                             }}
-                            fontSize='3rem'
+                            fontSize='2rem'
                             as={motion.h1}
                             variants={item}
                         >
