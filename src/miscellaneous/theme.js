@@ -30,14 +30,14 @@ const styles = {
         },
         h1: {
             fontSize: {
-                base: '3.5em',
+                base: '3rem',
                 md: '4.5rem'
             },
             fontWeight: 'bold'
         },
         p: {
             fontSize: {
-                base: '.9rem',
+                base: '.85rem',
                 md: '1rem'
             },
             fontWeight: 'medium'

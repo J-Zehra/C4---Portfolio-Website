@@ -99,7 +99,11 @@ export const NavBar = () => {
                     <Image
                         transition='all .3s ease'
                         w={scrolled ? '2.9rem' : '3rem'}
-                        src={darkMode ? Logo : !toggled ? Logo2 : Logo}
+                        src={
+                            darkMode && !toggled ? Logo : 
+                            darkMode && toggled ? Logo2 : 
+                            !darkMode && toggled ? Logo : Logo2
+                        }
                     />
                 </Link>
 
@@ -163,6 +167,7 @@ export const NavBar = () => {
                                 borderColor='palette.accent'
                                 transition='all .3s ease'
                                 fontSize={scrolled ? '.9rem' : '.95rem'}
+                                as='a'
                                 href='#contact'
                                 {...activeNav === 3 && activeContactStyle}
                                 _hover={{

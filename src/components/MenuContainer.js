@@ -68,7 +68,7 @@ export const MenuContainer = () => {
                     <Link
                         key={index}
                         href={nav.link}
-                        color='palette.accent'
+                        color={darkMode ? 'palette.tertiary' : 'palette.accent'}
                         fontSize='1.2rem'
                         fontWeight='semibold'
                         onClick={() => setToggled(!toggled)}
@@ -83,16 +83,16 @@ export const MenuContainer = () => {
             {/* Contact */}
             <Button
                 bg='transparent'
-                color='palette.accent'
+                color={darkMode ? 'palette.tertiary' : 'palette.accent'}
                 border='1px solid'
-                borderColor='palette.accent'
+                borderColor={darkMode ? 'palette.tertiary' : 'palette.accent'}
                 transition='all .3s ease'
                 fontSize={scrolled ? '.9rem' : '.95rem'}
                 href='#contact'
                 onClick={() => setToggled(!toggled)}
                 _hover={{
-                    bg: 'palette.accent',
-                    color: 'palette.tertiary'
+                    bg: darkMode ? 'palette.tertiary' : 'palette.accent',
+                    color: darkMode ? 'palette.accent' : 'palette.tertiary' ,
                 }}
 
                 as={motion.a}

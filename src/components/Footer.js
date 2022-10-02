@@ -46,9 +46,9 @@ export const Footer = () => {
                             bg='palette.tertiary'
                             color='palette.primary'
                             opacity='.5'                        
+                            key={index}
                         >
                             <Box 
-                                key={index}
                                 fontSize='1.5rem'
                                 as={motion.a}
                                 variants={item}
