@@ -91,7 +91,7 @@ export const Home = () => {
                         as={motion.h1}
                         variants={item}
                     >
-                        {`${data[0]?.profession}.`}
+                        {`${data[0]?.profession}`}
                     </Text>
                     <Text
                         w={{
