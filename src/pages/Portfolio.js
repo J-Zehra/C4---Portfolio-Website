@@ -51,7 +51,7 @@ export const Portfolio = () => {
             <Flex
                 justifyContent='center'
                 flexDir='column'
-                gap='12rem'
+                gap='5rem'
                 margin='auto'
                 w={{
                     base: '95%',
@@ -62,13 +62,13 @@ export const Portfolio = () => {
                 }}
             >
                 <Box
-                    marginTop='16rem'
+                    marginTop='10rem'
                     bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                     backgroundClip='text'
                 >
                     <Text
                         textAlign='center'
-                        fontSize='1.5rem'
+                        fontSize='2.5rem'
                         fontWeight='bold'
                     >
                         Portfolio

@@ -41,7 +41,7 @@ export const About = () => {
             <Flex
                 justifyContent='center'
                 flexDir='column'
-                gap='15rem'
+                gap='5rem'
                 margin='auto'
                 w={{
                     base: '95%',
@@ -57,7 +57,7 @@ export const About = () => {
                 >
                     <Text
                         textAlign='center'
-                        fontSize='1.5rem'
+                        fontSize='2.5rem'
                         marginTop='8rem'
                         fontWeight='bold'
                     >
@@ -79,7 +79,7 @@ export const About = () => {
                         base: 'column',
                         lg: 'row'
                     }}
-                    gap='6rem'
+                    gap='10rem'
 
                     as={motion.div}
                     variants={container}

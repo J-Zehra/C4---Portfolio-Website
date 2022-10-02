@@ -119,10 +119,6 @@ export const Home = () => {
                         alignItems='center'
                         gap='2rem'
                         marginTop='5rem'
-                        flexDir={{
-                            base: 'column',
-                            md: 'row'
-                        }}
                     >
                         <Image 
                             src={Logo1} 
