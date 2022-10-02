@@ -118,19 +118,19 @@ export const Home = () => {
                         justifyContent='center'
                         alignItems='center'
                         gap='2rem'
-                        marginTop='5rem'
+                        marginTop='2rem'
                     >
                         <Image 
                             src={Logo1} 
                             w='12rem'
                             filter='grayscale(90%)'
-                            opacity='.3'
+                            opacity='.8'
                         />
                         <Image 
                             src={Logo2} 
                             w='12rem'
                             filter='grayscale(90%)'
-                            opacity='.3'
+                            opacity='.8'
                         />
                     </Flex>
                 </Flex>
