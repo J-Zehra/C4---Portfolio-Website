@@ -30,8 +30,8 @@ export const Portfolio = () => {
         { title: 'Project 2' },
         { title: 'Project 3' },
         { title: 'Project 4' },
-        { title: 'Project 5' },
-        { title: 'Project 6' },
+        // { title: 'Project 5' },
+        // { title: 'Project 6' },
     ]
 
     // CONTROLLER FOR THE MODAL
@@ -51,7 +51,7 @@ export const Portfolio = () => {
             <Flex
                 justifyContent='center'
                 flexDir='column'
-                gap='12rem'
+                gap='5rem'
                 margin='auto'
                 w={{
                     base: '95%',
@@ -62,13 +62,13 @@ export const Portfolio = () => {
                 }}
             >
                 <Box
-                    marginTop='16rem'
+                    marginTop='10rem'
                     bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                     backgroundClip='text'
                 >
                     <Text
                         textAlign='center'
-                        fontSize='1.5rem'
+                        fontSize='2.5rem'
                         fontWeight='bold'
                     >
                         Portfolio
@@ -100,8 +100,8 @@ export const Portfolio = () => {
                             key={index}
                         >
                             <Flex
-                                w='20rem'
-                                h='18rem'
+                                w='28rem'
+                                h='25rem'
                                 bg={darkMode ? '#C7DBEE' : '#323D50'}
                                 borderRadius='.5rem'
                                 boxShadow='2px 3px 20px rgba(0, 0, 0, .1)'
@@ -111,7 +111,7 @@ export const Portfolio = () => {
                                 as={motion.div}
                                 variants={item}
                                 whileHover={{
-                                    scale: 1.01
+                                    scale: 1.02
                                 }}
                             >
 

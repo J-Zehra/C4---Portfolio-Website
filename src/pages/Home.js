@@ -79,7 +79,7 @@ export const Home = () => {
                         as={motion.p}
                         variants={item}
                     >
-                        {`Hi, I am ${data[0]?.name}`},
+                        {/* {`Hi, I am ${data[0]?.name}`}, */}
                     </Text>
                     <Text
                         bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
@@ -91,7 +91,7 @@ export const Home = () => {
                         as={motion.h1}
                         variants={item}
                     >
-                        {`${data[0]?.profession}.`}
+                        {`${data[0]?.profession}`}
                     </Text>
                     <Text
                         w={{
@@ -118,23 +118,19 @@ export const Home = () => {
                         justifyContent='center'
                         alignItems='center'
                         gap='2rem'
-                        marginTop='5rem'
-                        flexDir={{
-                            base: 'column',
-                            md: 'row'
-                        }}
+                        marginTop='2rem'
                     >
                         <Image 
                             src={Logo1} 
                             w='12rem'
                             filter='grayscale(90%)'
-                            opacity='.3'
+                            opacity='.8'
                         />
                         <Image 
                             src={Logo2} 
                             w='12rem'
                             filter='grayscale(90%)'
-                            opacity='.3'
+                            opacity='.8'
                         />
                     </Flex>
                 </Flex>

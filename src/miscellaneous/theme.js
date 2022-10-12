@@ -61,7 +61,7 @@ const styles2 = {
         },
         h1: {
             fontSize: {
-                base: '3.5em',
+                base: '3rem',
                 md: '4.5rem'
             },
             fontWeight: 'bold'
