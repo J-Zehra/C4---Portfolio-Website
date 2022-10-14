@@ -8,7 +8,7 @@ export const AppContext = ({ children }) => {
 
     const [activeNav, setActiveNav] = useState(0)
     const [toggled, setToggled] = useState(false);
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode, setDarkMode] = useState(true);
 
     // INITIALIZE A STATE TO TRACK IF THE PAGE IS SCROLLED
     const [scrolled, setScrolled] = useState(false);
