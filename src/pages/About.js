@@ -131,7 +131,7 @@ export const About = () => {
                         <Text
                             bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                             backgroundClip='text'
-
+                            marginTop='-4rem'
                             fontSize='1rem'
                             as={motion.p}
                             variants={item}
