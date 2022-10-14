@@ -134,7 +134,7 @@ export const Contact = () => {
                     >
                         <Text
                             textAlign='center'
-                            fontSize='1.6rem'
+                            fontSize='2.5rem'
                             fontWeight='bold'
                             bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                             backgroundClip='text'
@@ -149,7 +149,7 @@ export const Contact = () => {
                             fontWeight='normal'
                             marginTop='1.2rem'
                             color='palette.tertiary'
-                            fontSize='.85rem'
+                            fontSize='1rem'
                             bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                             backgroundClip='text'
 
@@ -170,7 +170,7 @@ export const Contact = () => {
                             <Flex
                                 gap={{
                                     base: '2rem',
-                                    md: '6rem'
+                                    md: '2rem'
                                 }}
                                 flexDir={{
                                     base: 'column',
@@ -185,8 +185,8 @@ export const Contact = () => {
                                     value={firstName}
                                     onChange={(e) => setFirstName(e.target.value)}
                                     _placeholder={{
-                                        color: '#A0B6D2',
-                                        fontSize: '.8rem'
+                                        color: darkMode ? 'palette.accent' : 'palette.tertiary',  
+                                        fontSize: '1rem'
                                     }}
                                     as={motion.input}
                                     variants={item}
@@ -199,8 +199,8 @@ export const Contact = () => {
                                     value={lastName}
                                     onChange={(e) => setLastName(e.target.value)}
                                     _placeholder={{
-                                        color: '#A0B6D2',
-                                        fontSize: '.8rem'
+                                        color: darkMode ? 'palette.accent' : 'palette.tertiary',  
+                                        fontSize: '1rem'
                                     }}
                                     as={motion.input}
                                     variants={item}
@@ -215,8 +215,8 @@ export const Contact = () => {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     _placeholder={{
-                                        color: '#A0B6D2',
-                                        fontSize: '.8rem'
+                                        color: darkMode ? 'palette.accent' : 'palette.tertiary',  
+                                        fontSize: '1rem'
                                     }}
                                     as={motion.input}
                                     variants={item}
@@ -234,8 +234,8 @@ export const Contact = () => {
                                     value={message}
                                     onChange={(e) => setMessage(e.target.value)}
                                     _placeholder={{
-                                        color: '#A0B6D2',
-                                        fontSize: '.8rem'
+                                        color: darkMode ? 'palette.accent' : 'palette.tertiary',  
+                                        fontSize: '1rem'
                                     }}
                                     as={motion.textarea}
                                     variants={item}

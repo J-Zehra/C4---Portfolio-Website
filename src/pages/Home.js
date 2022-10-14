@@ -90,13 +90,14 @@ export const Home = () => {
                         }}
                         as={motion.h1}
                         variants={item}
+                        marginBottom='2rem'
                     >
                         {`${data[0]?.profession}`}
                     </Text>
                     <Text
                         w={{
                             base: '90%',
-                            lg: '60%'
+                            lg: '80%'
                         }}
                         bg={darkMode ? 'palette.primary' : 'linear-gradient(#E0FBFC ,#A0B6D2)'}
                         backgroundClip='text'
@@ -106,6 +107,7 @@ export const Home = () => {
                         }}
                         as={motion.p}
                         variants={item}
+                        marginBottom='2rem'
                     >
                         {`${data[0]?.description}`}
                     </Text>
@@ -113,8 +115,13 @@ export const Home = () => {
                     {/* CTA */}
                     <CTA
                         variants={item}
+                        marginBottom='2rem'
                     />
                     <Flex
+                        flexDirection={{
+                            base: 'column',
+                            md: 'row'
+                        }}
                         justifyContent='center'
                         alignItems='center'
                         gap='2rem'
@@ -130,7 +137,7 @@ export const Home = () => {
                             src={Logo2} 
                             w='12rem'
                             filter='grayscale(90%)'
-                            opacity='.8'
+                            opacity='1'
                         />
                     </Flex>
                 </Flex>

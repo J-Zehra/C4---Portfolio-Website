@@ -26,12 +26,15 @@ export const Footer = () => {
             flexDir='column'
             gap='1rem'
         >   
-            <Text>
+            <Text
+                fontSize='1.3rem'
+                marginTop='-2rem'
+            >
                 Follow my socials
             </Text>
 
             <Flex
-                gap='2rem'
+                gap='2.5rem'
                 as={motion.div}
                 variants={container}
                 whileInView='show'
@@ -49,7 +52,8 @@ export const Footer = () => {
                             key={index}
                         >
                             <Box 
-                                fontSize='1.5rem'
+                                fontSize='2.5rem'
+                                marginBottom='-2rem'
                                 as={motion.a}
                                 variants={item}
                                 href={social.link}
